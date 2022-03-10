@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JS Modules</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="main_wrapper">
+    <div class="scoreboard yellow">
+      <div class="info_panel">
+        <h2>Player: O</h2>
+        <p class="result hide_result">Your Turn!</p>
+      </div>
+    </div>
+    <div class="scoreboard green">
+      <div class="info_panel">
+        <h2>Player: X</h2>
+        <p class="result hide_result">Your turn!</p>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="board_wrapper">
+        <div class="cell radius-top-left" id="1">
+          <div></div>
+        </div>
+        <div class="cell" id="2">
+          <div></div>
+        </div>
+        <div class="cell radius-top-right" id="3">
+          <div></div>
+        </div>
+        <div class="cell" id="4">
+          <div></div>
+        </div>
+        <div class="cell" id="5">
+          <div></div>
+        </div>
+        <div class="cell" id="6">
+          <div></div>
+        </div>
+        <div class="cell radius-bottom-left" id="7">
+          <div></div>
+        </div>
+        <div class="cell" id="8">
+          <div></div>
+        </div>
+        <div class="cell radius-bottom-right" id="9">
+          <div></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="start_game" onclick="start()">START</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
