@@ -16,12 +16,9 @@
   align-items: center;
   background-color: lightslategray;
 }
-.yellow{
+.left{
   float: right;
 }
-/* .green{
-  background-color: lightgreen;
-} */
 .player, .score{
   font-family: impact;
   color: white;
@@ -50,7 +47,8 @@ span{
   visibility: hidden;
 }
 .light_border{
-  border: 4px solid red;
+  transition: all 0.5s;
+  border: 1px solid green;
   background-color: lightgreen;
 }
 .wrapper{
@@ -96,20 +94,21 @@ span{
   border-bottom-right-radius: 25px;
 }
 .circle{
+  transition: all 0.3s;
+  border: 2px solid black;
   display: inline-block;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 2px solid black;
 }
 .cross {
   position: absolute; 
-  }
+}
 .cross:before, .cross:after {
   position: absolute;
   content: '';
   top: -30px;
-  height: 60px;
+  height: 70px;
   width: 2px;
   background-color: black;
 }
@@ -119,22 +118,29 @@ span{
 .cross:after {
   transform: rotate(-45deg);
 }
-.controls{
-  margin-top: 3px;
-  /* border: 4px solid red; */
-  text-align: center;
-  z-index: 500;
-}
-button {
+.btn {
   cursor: pointer;
   margin-top: 20px;
   width: 400px;
   height: 50px;
   border-radius: 10px;
-  border:4px solid red;
   background-color: yellow;
   color: red;
   font-size: large;
+}
+.btn:hover {
+	transition: all 0.2s;
+	box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+}
+.btn:active {
+	background-color: #808080;
+  color: white;
+}
+.btn:disabled {
+	background-color: #eee;
+	border-color: #eee;
+	color: #444;
+	cursor: not-allowed;
 }
 .pointer{
   cursor: pointer;
