@@ -2,7 +2,12 @@
 const scoreboards = document.querySelectorAll('.scoreboard')
 const cells = document.querySelectorAll('.cell')
 const result = document.querySelectorAll('.result')
+const scores = document.querySelectorAll('.score')
 
+const points = {
+  firstPlayer: 0,
+  secondPlayer: 0,
+}
 
 const start = () => {
   reset()
@@ -11,11 +16,13 @@ const start = () => {
   scoreboards[random].classList.add('light_border')
   result[random].classList.remove('hide_result')
   cells.forEach(cell => cell.addEventListener('click', play))
+  cells.forEach(cell => cell.classList.add('pointer'))
 }
 
 function play() { gameProcess.nextTurn(this) }
 
 const gameProcess = {
+
   firstPlayer: [],
   secondPlayer: [],
   nextTurn(item) {
@@ -46,22 +53,29 @@ const checkCombination = (player1, player2) => {
     [1, 5, 9],
     [3, 5, 7],
   ]
+  scoreboards.forEach(item => item.classList.toggle('light_border'))
   arr.forEach(function (item) {
     if (player1.includes(item[0]) && player1.includes(item[1]) && player1.includes(item[2])) {
-      finishGame('ZERO WIN!', 'CROSS LOST!', 0)
+      scores[0].innerHTML = ++points.firstPlayer
+      finishGame('WIN!', 'LOST!', 0)
     } else if (player2.includes(item[0]) && player2.includes(item[1]) && player2.includes(item[2])) {
-      finishGame('ZERO LOST!', 'CROSS WIN!', 1)
+      scores[1].innerHTML = ++points.secondPlayer
+      finishGame('LOST!', 'WIN!', 1)
     } else if (player1.length === 5 || player2.length === 5) {
       finishGame('DRAW!', 'DRAW!', 0)
       result.forEach(item => item.classList.remove('hide_result'))
+      scoreboards.forEach(item => item.classList.remove('light_border'))
     }
   })
-  scoreboards.forEach(item => item.classList.toggle('light_border'))
+
 }
 
 const finishGame = (str1, str2, num) => {
   result[0].innerHTML = str1
   result[1].innerHTML = str2
+  cells.forEach(cell => cell.classList.remove('pointer'))
+  scoreboards.forEach(item => item.classList.remove('light_border'))
+  scoreboards[num].classList.add('light_border')
   result[num].classList.remove('hide_result')
   cells.forEach(cell => cell.removeEventListener('click', play))
 }
