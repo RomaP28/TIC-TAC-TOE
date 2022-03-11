@@ -51,6 +51,9 @@ span{
   border: 1px solid green;
   background-color: lightgreen;
 }
+.underLine{
+  text-decoration: underline;
+}
 .wrapper{
   position: absolute;
   top:0;
@@ -64,7 +67,7 @@ span{
 
 }
 .board_wrapper{
-  width: 400px;
+  width: 399px;
   height: 400px;
   margin-left: auto;
   margin-right: auto;
@@ -72,6 +75,11 @@ span{
   flex-wrap: wrap;
   background-color: yellow;
   border-radius: 25px;
+}
+#cnvs{
+  width: 400px;
+  height: 400px;
+  position: absolute;
 }
 .cell{
   display: flex;
