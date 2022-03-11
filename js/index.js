@@ -4,8 +4,7 @@ const cells = document.querySelectorAll('.cell')
 const result = document.querySelectorAll('.result')
 const scores = document.querySelectorAll('.score')
 const canvas = document.getElementById('cnvs');
-cells.forEach(cell => cell.addEventListener('click', play))
-cells.forEach(cell => cell.classList.add('pointer'))
+
 
 
 const points = {
@@ -20,6 +19,8 @@ const start = () => {
   scoreboards[random].classList.add('light_border')
   scoreboards[random].childNodes[1].classList.add('underLine')
   result[random].classList.remove('hide_result')
+  cells.forEach(cell => cell.addEventListener('click', play))
+  cells.forEach(cell => cell.classList.add('pointer'))
 }
 
 function play() { gameProcess.nextTurn(this) }
@@ -35,6 +36,7 @@ const gameProcess = {
       this.turn = 1
     } else {
       this.figure = 'cross'
+      this.secondPlayer.push(+item.id)
       this.turn = 0
     }
     item.childNodes[1].classList.add(this.figure)
@@ -58,6 +60,7 @@ const checkCombination = (player1, player2) => {
   scoreboards.forEach(item => item.classList.toggle('light_border'))
   scoreboards.forEach(item => item.childNodes[1].classList.toggle('underLine'))
   arr.forEach(function (item) {
+    debugger
     if (player1.includes(item[0]) && player1.includes(item[1]) && player1.includes(item[2])) {
       draw = 1
       scores[0].innerHTML = ++points.firstPlayer
