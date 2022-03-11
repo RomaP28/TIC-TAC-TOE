@@ -156,7 +156,7 @@ span{
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
 @media (max-width: 1270px) {
   .scoreboard{
-    padding-top: 400px;
+    padding-top: 430px;
   }
   .wrapper{
     transition: all 0.5s;
