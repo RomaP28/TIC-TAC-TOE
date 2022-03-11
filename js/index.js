@@ -60,7 +60,6 @@ const checkCombination = (player1, player2) => {
   scoreboards.forEach(item => item.classList.toggle('light_border'))
   scoreboards.forEach(item => item.childNodes[1].classList.toggle('underLine'))
   arr.forEach(function (item) {
-    debugger
     if (player1.includes(item[0]) && player1.includes(item[1]) && player1.includes(item[2])) {
       draw = 1
       scores[0].innerHTML = ++points.firstPlayer
