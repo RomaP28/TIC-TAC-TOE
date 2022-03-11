@@ -146,7 +146,7 @@ span{
 }
 .btn:disabled {
 	background-color: #eee;
-	border-color: #eee;
+	border-color: black;
 	color: #444;
 	cursor: not-allowed;
 }
@@ -159,8 +159,15 @@ span{
     padding-top: 400px;
   }
   .wrapper{
-    flex-direction: column;
+    transition: all 0.5s;
     justify-content: flex-start;
-    align-items: center;
+  }
+  .player, .score, .result{
+    font-size: 2em;
+    font-weight: 500;
+  }
+  span{
+    font-size: 2em;
+    font-weight: 500;
   }
 }
