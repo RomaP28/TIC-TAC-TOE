@@ -17,7 +17,6 @@ const start = () => {
   let random = Math.floor(Math.random() * 2)
   gameProcess.turn = random
   scoreboards[random].classList.add('light_border')
-  scoreboards[random].childNodes[1].classList.add('underLine')
   result[random].classList.remove('hide_result')
   cells.forEach(cell => cell.addEventListener('click', play))
   cells.forEach(cell => cell.classList.add('pointer'))
@@ -58,23 +57,21 @@ const checkCombination = (player1, player2) => {
   ]
   let draw = 0;
   scoreboards.forEach(item => item.classList.toggle('light_border'))
-  scoreboards.forEach(item => item.childNodes[1].classList.toggle('underLine'))
   arr.forEach(function (item) {
     if (player1.includes(item[0]) && player1.includes(item[1]) && player1.includes(item[2])) {
       draw = 1
       scores[0].innerHTML = ++points.firstPlayer
       drawLine(arr.indexOf(item))
-      finishGame('WIN!', 'LOST!', 0)
+      throw finishGame('WIN!', 'LOST!', 0)
     } else if (player2.includes(item[0]) && player2.includes(item[1]) && player2.includes(item[2])) {
       draw = 1
       scores[1].innerHTML = ++points.secondPlayer
       drawLine(arr.indexOf(item))
-      finishGame('LOST!', 'WIN!', 1)
+      throw finishGame('LOST!', 'WIN!', 1)
     } else if ((player1.length === 5 || player2.length === 5) && draw === 0) {
       finishGame('DRAW!', 'DRAW!', 0)
       result.forEach(item => item.classList.remove('hide_result'))
       scoreboards.forEach(item => item.classList.remove('light_border'))
-      scoreboards.forEach(item => item.childNodes[1].classList.remove('underLine'))
     }
   })
 
@@ -85,8 +82,6 @@ const finishGame = (str1, str2, num) => {
   result[1].innerHTML = str2
   scoreboards.forEach(item => item.classList.remove('light_border'))
   scoreboards[num].classList.add('light_border')
-  scoreboards.forEach(item => item.childNodes[1].classList.remove('underLine'))
-  scoreboards[num].childNodes[1].classList.add('underLine')
   result[num].classList.remove('hide_result')
 }
 
@@ -96,7 +91,6 @@ const reset = () => {
   cells.forEach(item => item.childNodes[1].classList.remove('circle'))
   cells.forEach(item => item.childNodes[1].classList.remove('cross'))
   scoreboards.forEach(item => item.classList.remove('light_border'))
-  scoreboards.forEach(item => item.childNodes[1].classList.remove('underLine'))
   result.forEach(item => item.classList.add('hide_result'))
   result.forEach(item => item.innerHTML = 'Your turn!')
   canvas.classList.add('hide_result')
@@ -153,7 +147,6 @@ const drawLine = (num) => {
     }, 10
     )
   }
-
   function drawVerticalLine(x, y, a, b) {
     ctx.moveTo(x, y) //передвигаем перо
     setInterval(function () {

@@ -52,9 +52,6 @@ span{
   border: 1px solid green;
   background-color: lightgreen;
 }
-.underLine{
-  text-decoration: underline;
-}
 .wrapper{
   position: absolute;
   top:0;
