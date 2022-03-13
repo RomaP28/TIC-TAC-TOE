@@ -8,30 +8,24 @@
 </head>
 
 <body>
-  <!-- <embed src="media/audio.mp3" autostart="true"> </embed>
-
-  <audio src="audio.ogg" type="audio/mp3" controls></audio>
-  <audio controls>
-    <source src="media/audio.mp3" type="audio/mp3">
-    <source src="audio.ogg" type="audio/ogg">
-    <source src="audio.mp3" type="audio/mp3">
-    <source src="audio.wav" type="audio/wav">
-
-  </audio> -->
   <div class="main_wrapper">
     <div class="scoreboard left">
-      <h2 class="player">Player <span>O</span></h2>
-      <p class="score">0</p>
-      <p class="result hide_result">Your Turn!</p>
+      <div class="container">
+        <h2 class="player">Player <span>O</span></h2>
+        <p class="score">0</p>
+        <p class="message hide_element">Your Turn!</p>
+      </div>
     </div>
     <div class="scoreboard">
-      <h2 class="player">Player <span>X</span></h2>
-      <p class="score">0</p>
-      <p class="result hide_result">Your turn!</p>
+      <div class="container">
+        <h2 class="player">Player <span>X</span></h2>
+        <p class="score">0</p>
+        <p class="message hide_element">Your turn!</p>
+      </div>
     </div>
-    <div class="wrapper">
-      <div class="board_wrapper">
-        <canvas id="cnvs" class="hide_result"></canvas>
+    <div class="board_wrapper">
+      <div class="board">
+        <canvas id="cnvs" class="hide_element"></canvas>
         <div class="cell radius-top-left" id="1">
           <div></div>
         </div>

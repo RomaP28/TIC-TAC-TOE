@@ -1,7 +1,7 @@
 
 const scoreboards = document.querySelectorAll('.scoreboard')
 const cells = document.querySelectorAll('.cell')
-const result = document.querySelectorAll('.result')
+const message = document.querySelectorAll('.message')
 const scores = document.querySelectorAll('.score')
 const canvas = document.getElementById('cnvs');
 
@@ -16,8 +16,8 @@ const start = () => {
   reset()
   let random = Math.floor(Math.random() * 2)
   gameProcess.turn = random
-  scoreboards[random].classList.add('light_border')
-  result[random].classList.remove('hide_result')
+  scoreboards[random].classList.add('light_block')
+  message[random].classList.remove('hide_element')
   cells.forEach(cell => cell.addEventListener('click', play))
   cells.forEach(cell => cell.classList.add('pointer'))
 }
@@ -39,7 +39,7 @@ const gameProcess = {
       this.turn = 0
     }
     item.childNodes[1].classList.add(this.figure)
-    result.forEach(item => item.classList.toggle('hide_result'))
+    message.forEach(item => item.classList.toggle('hide_element'))
     checkCombination(this.firstPlayer, this.secondPlayer)
   }
 }
@@ -56,7 +56,7 @@ const checkCombination = (player1, player2) => {
     [3, 5, 7],
   ]
   let draw = 0;
-  scoreboards.forEach(item => item.classList.toggle('light_border'))
+  scoreboards.forEach(item => item.classList.toggle('light_block'))
   arr.forEach(function (item) {
     if (player1.includes(item[0]) && player1.includes(item[1]) && player1.includes(item[2])) {
       draw = 1
@@ -70,19 +70,19 @@ const checkCombination = (player1, player2) => {
       throw finishGame('LOST!', 'WIN!', 1)
     } else if ((player1.length === 5 || player2.length === 5) && draw === 0) {
       finishGame('DRAW!', 'DRAW!', 0)
-      result.forEach(item => item.classList.remove('hide_result'))
-      scoreboards.forEach(item => item.classList.remove('light_border'))
+      message.forEach(item => item.classList.remove('hide_element'))
+      scoreboards.forEach(item => item.classList.remove('light_block'))
     }
   })
 
 }
 
 const finishGame = (str1, str2, num) => {
-  result[0].innerHTML = str1
-  result[1].innerHTML = str2
-  scoreboards.forEach(item => item.classList.remove('light_border'))
-  scoreboards[num].classList.add('light_border')
-  result[num].classList.remove('hide_result')
+  message[0].innerHTML = str1
+  message[1].innerHTML = str2
+  scoreboards.forEach(item => item.classList.remove('light_block'))
+  scoreboards[num].classList.add('light_block')
+  message[num].classList.remove('hide_element')
 }
 
 const reset = () => {
@@ -90,16 +90,16 @@ const reset = () => {
   gameProcess.secondPlayer = []
   cells.forEach(item => item.childNodes[1].classList.remove('circle'))
   cells.forEach(item => item.childNodes[1].classList.remove('cross'))
-  scoreboards.forEach(item => item.classList.remove('light_border'))
-  result.forEach(item => item.classList.add('hide_result'))
-  result.forEach(item => item.innerHTML = 'Your turn!')
-  canvas.classList.add('hide_result')
+  scoreboards.forEach(item => item.classList.remove('light_block'))
+  message.forEach(item => item.classList.add('hide_element'))
+  message.forEach(item => item.innerHTML = 'Your turn!')
+  canvas.classList.add('hide_element')
 }
 
 const drawLine = (num) => {
-  canvas.classList.remove('hide_result')
+  canvas.classList.remove('hide_element')
   const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // очишаем поле рисования
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // очищаем поле рисования
   ctx.lineWidth = 5 // толщина линии
   ctx.strokeStyle = 'red' // цвет линии
   ctx.beginPath()// обозначаем начало рисования новой фигуры
@@ -130,7 +130,6 @@ const drawLine = (num) => {
       drawDiagonalLineRight(x = 27.2, y = 138, a = 272, b = 15)
       break;
   }
-
   ctx.stroke()
   ctx.closePath()
 
