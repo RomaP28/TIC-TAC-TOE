@@ -18,7 +18,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
 }
 .player, .score{
   font-family: impact;
