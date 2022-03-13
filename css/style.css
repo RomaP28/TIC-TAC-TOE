@@ -62,7 +62,7 @@ span{
   align-items: center;
 }
 .board{
-  width: 399px;
+  width: 400px;
   height: 400px;
   margin-left: auto;
   margin-right: auto;
@@ -80,8 +80,9 @@ span{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 131px;
-  height: 132px;
+  width: 33.33%;
+  height: 33.33%;
+  box-sizing: border-box;
   border: 1px solid black;
 }
 .radius-top-left{
@@ -154,19 +155,15 @@ span{
 @media (max-width: 1270px) {
   .board{
     margin-top: 20px;
-    width: 276px;
+    width: 275px;
     height: 275px;
   } 
-  .cell{
-    width: 90px;
-    height: 90px;
-  }
   .btn {
     width: 276px;
     height: 50px;
   }
   #cnvs{
-    width: 276px;
+    width: 275px;
     height: 275px;
   }
   .board_wrapper{
@@ -195,16 +192,12 @@ span{
   } 
   .board{
     margin-top: 20px;
-    width: 399px;
+    width: 400px;
     height: 400px;
   }
   #cnvs{
     width: 400px;
     height: 400px;
-  }
-  .cell{
-    width: 131px;
-    height: 132px;
   }
   .btn {
     width: 400px;
@@ -215,19 +208,15 @@ span{
 @media (max-width: 400px) {
   .board{
     margin-top: 20px;
-    width: 276px;
+    width: 275px;
     height: 275px;
   } 
-  .cell{
-    width: 90px;
-    height: 90px;
-  }
   .btn {
     width: 276px;
     height: 50px;
   }
   #cnvs{
-    width: 276px;
+    width: 275px;
     height: 275px;
   }
   .scoreboard{
