@@ -82,6 +82,7 @@ span{
   width: 400px;
   height: 400px;
   position: absolute;
+  z-index: 100;
 }
 .cell{
   display: flex;
@@ -105,15 +106,15 @@ span{
   border-bottom-right-radius: 25px;
 }
 .circle{
-  transition: all 0.3s;
-  border: 2px solid black;
-  display: inline-block;
+  transition: border-radius 0.3s;
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  border: 2px solid black;
 }
 .cross {
   position: absolute; 
+  z-index: 50;
 }
 .cross:before, .cross:after {
   position: absolute;

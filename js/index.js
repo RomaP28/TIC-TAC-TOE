@@ -147,11 +147,11 @@ const drawLine = (num) => {
     )
   }
   function drawVerticalLine(x, y, a, b) {
-    ctx.moveTo(x, y) //передвигаем перо
+    ctx.moveTo(x, y)
     setInterval(function () {
       if (y < b) {
         y += 11.5
-        ctx.lineTo(a, y) //рисуем линию
+        ctx.lineTo(a, y)
       }
       ctx.fill()
       ctx.stroke()
@@ -159,12 +159,12 @@ const drawLine = (num) => {
     )
   }
   function drawDiagonalLineLeft(x, y, a, b) {
-    ctx.moveTo(x, y) //передвигаем перо
+    ctx.moveTo(x, y)
     setInterval(function () {
       if (x < a && y < b) {
         x += 27
         y += 13.7
-        ctx.lineTo(x, y) //рисуем линию
+        ctx.lineTo(x, y)
       }
       ctx.fill()
       ctx.stroke()
@@ -172,12 +172,12 @@ const drawLine = (num) => {
     )
   }
   function drawDiagonalLineRight(x, y, a, b) {
-    ctx.moveTo(x, y) //передвигаем перо
+    ctx.moveTo(x, y)
     setInterval(function () {
       if (x < a && b < y) {
         x += 27
         y = y - 13.7
-        ctx.lineTo(x, y) //рисуем линию
+        ctx.lineTo(x, y)
       }
       ctx.fill()
       ctx.stroke()
