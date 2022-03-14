@@ -20,9 +20,10 @@ const start = () => {
   message[random].classList.remove('hide_element')
   cells.forEach(cell => cell.addEventListener('click', play))
   cells.forEach(cell => cell.classList.add('pointer'))
+  function play() { gameProcess.nextTurn(this) }
 }
 
-function play() { gameProcess.nextTurn(this) }
+
 
 const gameProcess = {
   firstPlayer: [],
